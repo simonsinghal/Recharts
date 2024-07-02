@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css"
+import AreaChart from "./Components/AreaChart";
+import BarChart from "./Components/BarChart";
+import LineChart from "./Components/LineChart";
+import PieChart from "./Components/PieChart";
 
-function App() {
+export default function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="main-container">
+      <div className="grid-container">
+        <GridItem title="AREA CHART">
+          <AreaChart />
+        </GridItem>
+        <GridItem title="LINE CHART">
+          <LineChart />
+        </GridItem>
+        <GridItem title="BAR CHART">
+          <BarChart />
+        </GridItem>
+        <GridItem title="PIE CHART">
+          <PieChart />
+        </GridItem>
+      </div>
+    </main>
   );
 }
 
-export default App;
+function GridItem({ title, children }) {
+  return (
+    <div className="grid-item">
+      <h3>{title}</h3>
+      {children}
+    </div>
+  );
+}
